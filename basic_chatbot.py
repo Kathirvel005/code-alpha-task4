@@ -1,26 +1,23 @@
-# Basic Rule-Based Chatbot
+"""
+basic_chatbot.py - Entry point for the Chatbot application.
+Powered by the upgraded AdvancedChatbot engine with NLP, Memory, Dynamic Tools & Rich CLI.
+"""
+
+import sys
+
+# Ensure UTF-8 output encoding for emoji and symbol support across all terminals
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+from advanced_chatbot import AdvancedChatbot
 
 def chatbot():
-    print("🤖 Chatbot: Hello! Type 'bye' to exit.")
+    """Main execution function for the chatbot."""
+    bot = AdvancedChatbot(bot_name="Nova")
+    bot.run_cli()
 
-    while True:
-        user_input = input("You: ").lower()
-
-        if user_input == "hello":
-            print("🤖 Chatbot: Hi!")
-        
-        elif user_input == "how are you":
-            print("🤖 Chatbot: I'm fine, thanks!")
-        
-        elif user_input == "what is your name":
-            print("🤖 Chatbot: I am a simple Python chatbot.")
-        
-        elif user_input == "bye":
-            print("🤖 Chatbot: Goodbye!")
-            break
-        
-        else:
-            print("🤖 Chatbot: Sorry, I don't understand that.")
-
-# Run the chatbot
-chatbot()
+if __name__ == "__main__":
+    chatbot()
